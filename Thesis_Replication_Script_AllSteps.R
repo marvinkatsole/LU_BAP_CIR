@@ -27,15 +27,156 @@
 
 # Prompt 3 (Zero-shot, with detailed framing definition)
 # "Your task is to evaluate how the following article frames the 2024 Gen Z-led protests against the Finance Bill in Kenya."
-# [Detailed framing guidelines and framing logic here...]
+#  "Framing refers to how specific aspects of an event are highlighted to promote a particular interpretation, evaluation, or meaning.",
+    "You are NOT evaluating general political tone or emotional content.",
+    "You are ONLY evaluating how the resistance movement is framed.",
+    "",
+    "Use this framing logic:",
+    "- Positive framing (+0.3 to +1): The protests are portrayed as morally justified, courageous, or necessary.",
+    "- Neutral framing (-0.3 to +0.3): The protests are described factually or both criticism and support are presented equally.",
+    "- Negative framing (-1 to -0.3): The protests are portrayed as chaotic, criminal, misguided, or illegitimate.",
+    "",
+    "Now analyze the following article:",
 
 # Prompt 4 (Few-shot with examples, simplified)
-# [Includes step-by-step reasoning and 3 example analyses]
+# "Your task is to evaluate how the following article frames the 2024 Gen Z-led protests against the Finance Bill in Kenya."
+#  "Framing refers to how specific aspects of an event are highlighted to promote a particular interpretation, evaluation, or meaning.",
+    "You are NOT evaluating general political tone or emotional content.",
+    "You are ONLY evaluating how the resistance movement is framed.",
+    "",
+    "Use this framing logic:",
+    "- Positive framing (+0.3 to +1): The protests are portrayed as morally justified, courageous, or necessary.",
+    "- Neutral framing (-0.3 to +0.3): The protests are described factually or both criticism and support are presented equally.",
+    "- Negative framing (-1 to -0.3): The protests are portrayed as chaotic, criminal, misguided, or illegitimate.",
+    "",
+    "Important: Do not infer framing based on unrelated policy criticism or background information.",
+    "Only judge the framing of the protests if they are directly discussed, supported, or critiqued.",
+    "",
+    "Use step-by-step reasoning before deciding.",
+    "Then format your response exactly like this:",
+    "Framing Category: [Positive / Neutral / Negative]; Continuous: [score from -1 to +1]; Justification: [brief explanation]",
+    "",
+    "Here are examples:",
+    "",
+    "Quote: “They’re just noisy wakora shouting ‘Ruto must go’. He’s not going anywhere.”",
+    "Step 1: Protestors are described using insulting language.",
+    "Step 2: The ‘Ruto must go’ slogan is mocked and dismissed.",
+    "Step 3: No justification is given for protest demands.",
+    "Framing Category: Negative; Continuous: -0.5; Justification: The article mocks protestors and delegitimizes their demands without offering counterbalance.",
+    "",
+    "Quote: “Pressure from the Gen Z protests forced the President to withdraw the Finance Bill 2024.”",
+    "Step 1: The protests are credited with achieving a political outcome.",
+    "Step 2: The framing implies that the resistance was effective and justified.",
+    "Step 3: No undermining or negative language is used.",
+    "Framing Category: Positive; Continuous: +0.7; Justification: The article frames the protests as legitimate and impactful in forcing a policy reversal.",
+    "",
+    "Quote: “The protests led to the withdrawal of the Finance Bill. The president is now focused on youth employment.”",
+    "Step 1: The article mentions the protest as context.",
+    "Step 2: It does not evaluate the protest positively or negatively.",
+    "Step 3: The tone is factual.",
+    "Framing Category: Neutral; Continuous: 0.0; Justification: The protest is referenced as background without moral judgment or framing.",
+    "",
+    "Now analyze the following article:",
 
 # Prompt 5 (Final few-shot prompt used in thesis)
-# [Includes detailed instruction + 6 annotated examples used for GPT-4 scoring]
+# "Your task is to evaluate how the following article frames the 2024 Gen Z-led protests against the Finance Bill in Kenya."
+#  "Framing refers to how specific aspects of an event are highlighted to promote a particular interpretation, evaluation, or meaning.",
+    "You are NOT evaluating general political tone or emotional content.",
+    "You are ONLY evaluating how the resistance movement is framed.",
+    "",
+    "Use this framing logic:",
+    "- Positive framing (+0.3 to +1): The protests are portrayed as morally justified, courageous, or necessary.",
+    "- Neutral framing (-0.3 to +0.3): The protests are described factually or both criticism and support are presented equally.",
+    "- Negative framing (-1 to -0.3): The protests are portrayed as chaotic, criminal, misguided, or illegitimate.",
+    "",
+    "Important: Do not infer framing based on unrelated policy criticism or background information.",
+    "Only judge the framing of the protests if they are directly discussed, supported, or critiqued.",
+    "",
+    "Use step-by-step reasoning before deciding.",
+    "Then format your response exactly like this:",
+    "Framing Category: [Positive / Neutral / Negative]; Continuous: [score from -1 to +1]; Justification: [brief explanation]",
+    "",
+    "Here are examples:",
+    "",
+    "Quote: “They’re just noisy wakora shouting ‘Ruto must go’. He’s not going anywhere.”",
+    "Step 1: Protestors are described using insulting language.",
+    "Step 2: The ‘Ruto must go’ slogan is mocked and dismissed.",
+    "Step 3: No justification is given for protest demands.",
+    "Framing Category: Negative; Continuous: -0.5; Justification: The article mocks protestors and delegitimizes their demands without offering counterbalance.",
+    "",
+    "Quote: “Pressure from the Gen Z protests forced the President to withdraw the Finance Bill 2024.”",
+    "Step 1: The protests are credited with achieving a political outcome.",
+    "Step 2: The framing implies that the resistance was effective and justified.",
+    "Step 3: No undermining or negative language is used.",
+    "Framing Category: Positive; Continuous: +0.7; Justification: The article frames the protests as legitimate and impactful in forcing a policy reversal.",
+    "",
+    "Quote: “The protests led to the withdrawal of the Finance Bill. The president is now focused on youth employment.”",
+    "Step 1: The article mentions the protest as context.",
+    "Step 2: It does not evaluate the protest positively or negatively.",
+    "Step 3: The tone is factual.",
+    "Framing Category: Neutral; Continuous: 0.0; Justification: The protest is referenced as background without moral judgment or framing.",
+    "",
+    "Quote: “The majority of the participants said it was better for them to die but make sure their voices were heard... I knew in my heart that I was fighting for the right thing.”",
+    "Step 1: The article centers a protestor who faced abduction and torture but affirms his moral commitment to the protests.",
+    "Step 2: The resistance is framed as a righteous stand against corruption and oppression.",
+    "Step 3: The government response acknowledges violations.",
+    "Framing Category: Positive; Continuous: +0.8; Justification: The article frames the protests as morally justified, highlighting personal sacrifice and civic commitment.",
+    "",
+    "Quote: “Protesters lit bonfires, blocked highways, looted businesses, and criminal gangs disguised as demonstrators raided shops. Clergy later called for peaceful protest and an end to police brutality.”",
+    "Step 1: The article describes legitimate protest goals but focuses heavily on violence, looting, and chaos.",
+    "Step 2: While peaceful acts and public support are mentioned, they are overshadowed by reports of criminality.",
+    "Step 3: The framing emphasizes disorder and instability.",
+    "Framing Category: Negative; Continuous: -0.5; Justification: Although the article includes some defense of protest rights, it overwhelmingly emphasizes chaos, which delegitimizes the resistance.",
+    "",
+    "Quote: “President Ruto took his first international trip after a two-month hiatus following the Gen Z protests, aiming to secure jobs for youth abroad.”",
+    "Step 1: The protest is mentioned purely to provide temporal context for the president’s travel.",
+    "Step 2: The article does not evaluate the protest’s legitimacy, goals, or methods.",
+    "Step 3: The rest of the article focuses on labor migration and diaspora policy.",
+    "Framing Category: Neutral; Continuous: 0.0; Justification: The protest is not morally framed and is only used to explain timing. No judgment is made about the movement itself.",
+    "",
+    "Now analyze the following article:",
 
 
+#Adding the coloumn with the inflation rate
+
+inflation_df <- data.frame(
+  Year = c(rep(2024, 10), rep(2025, 3)),
+  Month = c(3:12, 1:3),
+  Inflation = c(5.7, 5.0, 5.1, 4.6, 4.3, 4.4, 4.4, 3.6, 2.7, 2.8, 3.0, 3.3, 3.5)
+)
+
+# Add April 2025
+inflation_df <- rbind(
+  inflation_df,
+  data.frame(Year = 2025, Month = 4, Inflation = 3.7)
+)
+
+
+#extracting year and month from the articles
+Data_final_annotated$Year <- format(Data_final_annotated$date_published, "%Y") %>% as.integer()
+Data_final_annotated$Month <- format(Data_final_annotated$date_published, "%m") %>% as.integer()
+
+#now merge with the dataset 
+Data_final_annotated <- merge(Data_final_annotated, inflation_df, by = c("Year", "Month"), all.x = TRUE)
+
+#check for unmatched results
+
+subset(Data_final_annotated, is.na(Inflation))
+
+##for local petroleum prices 
+
+# Petrol prices dataframe
+petrol_df <- data.frame(
+  Year = c(rep(2024, 6), rep(2025, 4)),
+  Month = c(7:12, 1:4),
+  Super_Petrol = c(202.00, 202.00, 194.00, 192.00, 189.00, 185.00,
+                   176.58, 176.58, 176.58, 174.63)
+)
+
+#merge with data frame
+Data_final_annotated <- merge(Data_final_annotated, petrol_df, by = c("Year", "Month"), all.x = TRUE)
+
+### framing analysis final prompt and comparison only, but through inserting the prompts specified above one can get the results for the other ones as well
 
 library(httr)
 library(stringr)
@@ -674,29 +815,6 @@ ggplot(accuracy_data, aes(x = Method, y = Accuracy, fill = Method)) +
   geom_text(aes(label = round(Accuracy, 2)), vjust = -0.5, size = 4)
 
 
-# Recode political alignment into a binary variable
-Data_corrected_annotatednew$ethnic_alignment <- ifelse(Data_corrected_annotatednew$Political_Alignment == "aligned", "Kalenjin", "Other")
-
-
-#author fixed effects 
-
-# Step 1: Identify the top 20 most frequent authors
-top_authors <- names(sort(table(Data_corrected_annotatednew$Author_name), decreasing = TRUE))[1:30]
-
-# Step 2: Create a new variable that retains top authors, and groups others as "Other"
-Data_corrected_annotatednew$Author_FE <- ifelse(Data_corrected_annotatednew$Author_name %in% top_authors, Data_corrected_annotatednew$Author_name, "Other")
-
-# Step 3: Convert the new variable to a factor (needed for fixed effects)
-Data_corrected_annotatednew$Author_FE <- factor(Data_corrected_annotatednew$Author_FE)
-
-# Step 4: Run regression with Author_FE as fixed effect
-model <- lm(Framing_Score ~ state_affiliated + Alignment_binary + Inflation + 
-              Crude_Oil_USD.x + Gender_of_author + Media_format_type + 
-              factor(Month) + factor(Author_FE),
-            data = Data_corrected_annotatednew)
-# Step 5: Summary
-summary(model)
-
 library(lubridate)
 library(dplyr)
 
@@ -710,5 +828,45 @@ Data_corrected_annotated.2 <- Data_corrected_annotated.2 %>%
     week = isoweek(date),
     biweek = paste0(year, "-B", (week %/% 2) + 1)  # Biweekly group identifier
   )
+
+#Adding the coloumn with the inflation rate
+
+inflation_df <- data.frame(
+  Year = c(rep(2024, 10), rep(2025, 3)),
+  Month = c(3:12, 1:3),
+  Inflation = c(5.7, 5.0, 5.1, 4.6, 4.3, 4.4, 4.4, 3.6, 2.7, 2.8, 3.0, 3.3, 3.5)
+)
+
+# Add April 2025
+inflation_df <- rbind(
+  inflation_df,
+  data.frame(Year = 2025, Month = 4, Inflation = 3.7)
+)
+
+
+#extracting year and month from the articles
+Data_final_annotated$Year <- format(Data_final_annotated$date_published, "%Y") %>% as.integer()
+Data_final_annotated$Month <- format(Data_final_annotated$date_published, "%m") %>% as.integer()
+
+#now merge with the dataset 
+Data_final_annotated <- merge(Data_final_annotated, inflation_df, by = c("Year", "Month"), all.x = TRUE)
+
+#check for unmatched results
+
+subset(Data_final_annotated, is.na(Inflation))
+
+##for local petroleum prices 
+
+# Petrol prices dataframe
+petrol_df <- data.frame(
+  Year = c(rep(2024, 6), rep(2025, 4)),
+  Month = c(7:12, 1:4),
+  Super_Petrol = c(202.00, 202.00, 194.00, 192.00, 189.00, 185.00,
+                   176.58, 176.58, 176.58, 174.63)
+)
+
+#merge with data frame
+Data_final_annotated <- merge(Data_final_annotated, petrol_df, by = c("Year", "Month"), all.x = TRUE)
+
 
 
